@@ -1,0 +1,23 @@
+label {
+  margin-top: 45px;
+  font-size: 30px;
+}
+
+h2.title {
+  text-align: center;
+  font-size: 38px;
+}
+
+select.selectIssue {
+  font-size: 22px;
+}
+
+select.selectIssue:hover {
+  cursor: pointer;
+}
+
+p.submitText {
+  display: none;
+  margin-top: 50px;
+  font-size: 25px;
+}
