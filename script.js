@@ -3,7 +3,7 @@ let tokenNumber = 0;
 
 document.querySelector("button.submitButton").addEventListener("click", () => {
   firebaseRef.ref().once('value', function(snapshot) {
-    if (snapshot.val()) {
+    if (snapshot.toJSON().tokens) {
       tokenData = snapshot.toJSON().tokens;
       tokenProperties = Object.keys(tokenData);
       for (var i = 0; i < tokenProperties.length  ; i++) {
