@@ -21,3 +21,7 @@ p.submitText {
   margin-top: 50px;
   font-size: 25px;
 }
+
+button.my-btn {
+  margin-bottom: 30px;
+}
