@@ -1,5 +1,5 @@
 const firebaseRef = firebase.database();
-let tokenNumber = 1000;
+let tokenNumber = 0;
 let counters = {};
 let counterDetails = [];
 let tokenData = {};
