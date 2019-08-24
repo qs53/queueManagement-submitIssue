@@ -10,7 +10,7 @@ firebaseRef.ref().once("value", function (snapshot) {
     counterDetails = Object.keys(counters);
     let displayIssueButtons = "";
     for (let i = 0; i < counterDetails.length; i++) {
-        displayIssueButtons += "<button type='button' class='btn btn-primary btn-lg btn-block my-btn' value='" + counters[counterDetails[i]].name + "' onclick='getCounterName(event)'>" + counters[counterDetails[i]].name + "</button>"
+        displayIssueButtons += "<button type='button' class='btn block btn-primary' value='" + counters[counterDetails[i]].name + "' onclick='getCounterName(event)'>" + counters[counterDetails[i]].name + "</button>"
     }
     document.querySelector("div.issue-buttons").innerHTML = displayIssueButtons;
 });
@@ -21,6 +21,7 @@ function getCounterName(event) {
         counterDetails = Object.keys(counters);
 
         for (let i = 0; i < counterDetails.length; i++) {
+            console.log("a", counters[counterDetails[i]]);
             if (counters[counterDetails[i]].name === event.target.getAttribute("value")) {
                 if (snapshot.toJSON().tokens) {
                     tokenData = snapshot.toJSON().tokens;
@@ -44,13 +45,24 @@ function getCounterName(event) {
                     issue: counters[counterDetails[i]].name,
                     pending: true
                 });
+
+                $("#token").show();
+                var tokenHTML = '<h1>Ashara Mubarak 1441H</h1>' +
+                    '<h1>GP - Help Desk</h1>' +
+                    '<h3>Token No</h3>' +
+                    '<div style="font-size: 150px;" id="tokenNo">' + tokenNumber + '</div>';
+                $("#token").html(tokenHTML);
+                window.print();
                 console.log("Data submitted: \nToken Number: " + tokenNumber + "\nIssue: " + counters[counterDetails[i]].name);
             }
-          document.getElementsByClassName("submitText")[0].style.display = "block";
+            document.getElementsByClassName("submitText")[0].style.display = "block";
         }
         setTimeout(() => {
             document.getElementsByClassName("submitText")[0].style.display = "none";
-        }, 6000);
+        }, 3000);
+        setTimeout(() => {
+            $("#token").hide();
+        }, 3000);
     });
 }
 

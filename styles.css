@@ -25,3 +25,26 @@ p.submitText {
 button.my-btn {
   margin-bottom: 30px;
 }
+
+.block {
+  padding: 25px 25px;
+  text-align: center;
+  display: inline-block;
+  width: 40%;
+  font-size: 34px;
+  margin: 20px 20px;
+  cursor: pointer;
+}
+
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+}
+
+.token {
+  width: 300px;
+  text-align: center;
+  outline-offset: -5px;
+}

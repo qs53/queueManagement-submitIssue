@@ -12,29 +12,31 @@
 </head>
 
 <body>
-  <h2 class="p-3 mb-2 bg-secondary text-white title">Welcome To ITS Help Desk!</h2>
-  <div class="container">
-    <div class="form-group">
-      <label>What is your issue?</label><br><br>
-      <div class="issue-buttons"></div>
-    </div>
-    <p class="text-success submitText">Issue successfully submitted! Please wait until your token number is allocated.</p>
+<h2 class="p-3 mb-2 bg-secondary text-white title no-print">Welcome To ITS Help Desk!</h2>
+<div class="container no-print">
+  <div class="form-group">
+    <label>What is your issue?</label><br><br>
+    <div class="issue-buttons"></div>
   </div>
-  <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
-  <script>
-    var firebaseConfig = {
-      apiKey: "AIzaSyB5tN9SfaeIkxgsgHeLIudaP6_0fcVdkiY",
-      authDomain: "queue-management-b979b.firebaseapp.com",
-      databaseURL: "https://queue-management-b979b.firebaseio.com",
-      projectId: "queue-management-b979b",
-      storageBucket: "",
-      messagingSenderId: "441374399413",
-      appId: "1:441374399413:web:95f82c3373cba090"
-    };
-    firebase.initializeApp(firebaseConfig);
-  </script>
-  <script src="script.js"></script>
+  <p class="text-success submitText">Issue successfully submitted! Please wait until your token number is allocated.</p>
+</div>
+<div class="" id="token">
+</div>
+<script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyB5tN9SfaeIkxgsgHeLIudaP6_0fcVdkiY",
+    authDomain: "queue-management-b979b.firebaseapp.com",
+    databaseURL: "https://queue-management-b979b.firebaseio.com",
+    projectId: "queue-management-b979b",
+    storageBucket: "",
+    messagingSenderId: "441374399413",
+    appId: "1:441374399413:web:95f82c3373cba090"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="script.js"></script>
 </body>
 
 </html>
