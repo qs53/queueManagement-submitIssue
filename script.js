@@ -4,13 +4,18 @@ let counters = {};
 let counterDetails = [];
 let tokenData = {};
 let tokenProperties = [];
+let counterNames = [];
 
 firebaseRef.ref().once("value", function (snapshot) {
     counters = snapshot.toJSON().counters;
     counterDetails = Object.keys(counters);
+    counterDetails.forEach((counter) => {
+        counterNames.push(counters[counter].name);
+    });
+    counterNames = counterNames.filter(removeDuplicates);
     let displayIssueButtons = "";
-    for (let i = 0; i < counterDetails.length; i++) {
-        displayIssueButtons += "<button type='button' class='btn block btn-primary' value='" + counters[counterDetails[i]].name + "' onclick='getCounterName(event)'>" + counters[counterDetails[i]].name + "</button>"
+    for (let i = 0; i < counterNames.length; i++) {
+        displayIssueButtons += "<button type='button' class='btn block btn-primary' value='" + counterNames[i] + "' onclick='getCounterName(event)'>" + counterNames[i] + "</button>"
     }
     document.querySelector("div.issue-buttons").innerHTML = displayIssueButtons;
 });
@@ -19,10 +24,13 @@ function getCounterName(event) {
     firebaseRef.ref().once("value", function (snapshot) {
         counters = snapshot.toJSON().counters;
         counterDetails = Object.keys(counters);
+        counterDetails.forEach((counter) => {
+            counterNames.push(counters[counter].name);
+        });
+        counterNames = counterNames.filter(removeDuplicates);
 
-        for (let i = 0; i < counterDetails.length; i++) {
-            console.log("a", counters[counterDetails[i]]);
-            if (counters[counterDetails[i]].name === event.target.getAttribute("value")) {
+        for (let i = 0; i < counterNames.length; i++) {
+            if (counterNames[i] === event.target.getAttribute("value")) {
                 if (snapshot.toJSON().tokens) {
                     tokenData = snapshot.toJSON().tokens;
                     tokenProperties = Object.keys(tokenData);
@@ -61,6 +69,10 @@ function getCounterName(event) {
             $("#token").hide();
         }, 0);
     });
+}
+
+function removeDuplicates(value, index, self) {
+    return self.indexOf(value) === index;
 }
 
 
