@@ -33,7 +33,7 @@ function getCounterName(event) {
                         }
                     }
                 }
-                console.log(tokenNumber);
+
                 tokenNumber++;
                 if (tokenNumber >= 0 && tokenNumber <= 999) {
                     tokenNumber = ("000" + tokenNumber).substr(-3);
@@ -50,19 +50,16 @@ function getCounterName(event) {
                 var tokenHTML = '<h1>Ashara Mubarak 1441H</h1>' +
                     '<h1>GP - Help Desk</h1>' +
                     '<h3>Token No</h3>' +
-                    '<div style="font-size: 150px;" id="tokenNo">' + tokenNumber + '</div>';
+                    '<div style="font-size: 150px;" id="tokenNo">' + counters[counterDetails[i]].prefix + tokenNumber + '</div>';
                 $("#token").html(tokenHTML);
                 window.print();
                 console.log("Data submitted: \nToken Number: " + tokenNumber + "\nIssue: " + counters[counterDetails[i]].name);
             }
-            document.getElementsByClassName("submitText")[0].style.display = "block";
         }
         setTimeout(() => {
             document.getElementsByClassName("submitText")[0].style.display = "none";
-        }, 3000);
-        setTimeout(() => {
             $("#token").hide();
-        }, 3000);
+        }, 0);
     });
 }
 
