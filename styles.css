@@ -8,14 +8,6 @@ h2.title {
   font-size: 38px;
 }
 
-select.selectIssue {
-  font-size: 22px;
-}
-
-select.selectIssue:hover {
-  cursor: pointer;
-}
-
 p.submitText {
   display: none;
   margin-top: 50px;
