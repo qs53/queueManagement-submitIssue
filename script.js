@@ -47,10 +47,20 @@ function getCounterName(event) {
                     tokenNumber = ("000" + tokenNumber).substr(-3);
                 }
 
+                let prefix = "";
+                let name = "";
+
+                counterDetails.forEach((counter) => {
+                    if (counters[counter].name === counterNames[i]) {
+                        name = counters[counter].name;
+                        prefix = counters[counter].prefix;
+                    }
+                });
+
                 firebaseRef.ref("tokens/" + tokenNumber).set({
                     token: tokenNumber,
-                    prefix: counters[counterDetails[i]].prefix,
-                    issue: counters[counterDetails[i]].name,
+                    prefix: prefix,
+                    issue: name,
                     pending: true
                 });
 
@@ -58,10 +68,10 @@ function getCounterName(event) {
                 var tokenHTML = '<h1 style="color: black">Ashara Mubarak 1441H</h1>' +
                     '<h1 style="color: black">GP - Help Desk</h1>' +
                     '<h3 style="color: black">Token No</h3>' +
-                    '<div style="font-size: 130px; color: black" id="tokenNo">' + counters[counterDetails[i]].prefix + tokenNumber + '</div>';
+                    '<div style="font-size: 130px; color: black" id="tokenNo">' + prefix + tokenNumber + '</div>';
                 $("#token").html(tokenHTML);
                 window.print();
-                console.log("Data submitted: \nToken Number: " + tokenNumber + "\nIssue: " + counters[counterDetails[i]].name);
+                console.log("Data submitted: \nToken Number: " + tokenNumber + "\nIssue: " + name);
             }
         }
         setTimeout(() => {
