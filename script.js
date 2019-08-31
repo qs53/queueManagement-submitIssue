@@ -66,9 +66,9 @@ function getCounterName(event) {
 
                 $("#token").show();
                 var tokenHTML = '<h1 style="color: black">Ashara Mubarak 1441H</h1>' +
-                    '<h1 style="color: black">GP - Help Desk</h1>' +
+                    '<h1 style="color: black">' + name + '</h1>' +
                     '<h3 style="color: black">Token No</h3>' +
-                    '<div style="font-size: 90px; color: black" id="tokenNo">' + prefix + tokenNumber + '</div>';
+                    '<div style="font-size: 90px; color: black" id="tokenNo">' + tokenNumber + '</div>';
                 $("#token").html(tokenHTML);
                 window.print();
                 console.log("Data submitted: \nToken Number: " + tokenNumber + "\nIssue: " + name);
