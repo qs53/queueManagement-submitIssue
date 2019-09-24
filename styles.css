@@ -15,6 +15,20 @@ div.issue-buttons {
   text-align: center;
 }
 
+div.container {
+  display: none;
+}
+
+div.noTokens {
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 25px;
+  display: none;
+  border-radius: 10px;
+}
+
 h2.title {
   text-align: center;
   font-size: 38px;
